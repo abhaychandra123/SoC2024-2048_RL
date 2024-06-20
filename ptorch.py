@@ -1,0 +1,2 @@
+# using the colab book link
+# https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbC1DcmJxdWhPU3RfNDNFcFFuV1dsSG1FYW5fZ3xBQ3Jtc0tsc3lyeXVJUlFGMlRwLVRfWU91b2p2a1FPYkRlb3VoYjhveFZsREdwMFQ3YjlSdV84c0s2S1lwN2FpczZNN01tdkkyUVh0X3BiYzdiYU8tcFNxUTJjMkE1V0g1VFRaaHdLUHItQ19meEdPRmVuS1ZUUQ&q=https%3A%2F%2Fcolab.research.google.com%2Fdrive%2F1eiUBpmQ4m7Lbxqi2xth1jBaL61XTKdxp%3Fusp%3Dsharing&v=OIenNRt2bjg
