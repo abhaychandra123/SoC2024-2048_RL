@@ -1,5 +1,4 @@
-#IDEA: MAKE INTERACTIVE GUI FOR ALL OF THIS(tkinter/pygam98 n t61`   wafdsxz vbikp[;'
-# iup[;'||"??-[]|aswx"]]`)
+#IDEA: MAKE INTERACTIVE GUI FOR ALL OF THIS(tkinter/pygam)
 import numpy as np
 
 #lets define the environment first, 11 by 11 grid where -1 reward for where our bot can travel and -100 for forbidden and +100 for final destination

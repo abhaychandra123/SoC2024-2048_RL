@@ -1,6 +1,12 @@
-import numpy
-a=[1,1,1,1,1]
-print(numpy.argmax(a))
+import numpy as np
+a=np.array([[2,5],[1,6],[3,4],[1,2]])
+b=np.array([3,4,5,2])
+# print(a*b)
 
-a,b=(1,2)
-print(b)
+c=0
+d=9
+e=np.array([c,d])
+print(e)
+
+f=np.array([[1,2,3]])
+print(f[0][1])
