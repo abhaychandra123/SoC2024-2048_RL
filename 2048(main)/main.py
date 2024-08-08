@@ -1,7 +1,7 @@
 import numpy as np
 from game import Board
 from game import IllegalAction, GameOver
-from agent import nTupleNewrok
+from agent import nTupleNetwork
 import pickle
 
 from collections import namedtuple
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     if agent is None:
         print("initialize agent")
         n_games = 0
-        agent = nTupleNewrok(TUPLES)
+        agent = nTupleNetwork(TUPLES)
 
     n_session = 5000
     n_episode = 100
