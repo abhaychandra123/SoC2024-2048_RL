@@ -22,7 +22,7 @@ class GameOver(Exception):
 def compress(row):
     "remove 0s in the list"
     row1=[]
-    for i in row:
+    for i in [row]:
         if i!=0:
             row1.append(i)
     return row1
@@ -73,7 +73,7 @@ class Board:
         self.board[random.choice(self.empty_tiles())] = 1
         self.board[random.choice(self.empty_tiles())] = 2
 
-    def spawn_tile(self, random_tile=False):
+    def spawn_tile(self, random_tile=True):
         empty_tiles = self.empty_tiles()
         if len(empty_tiles) == 0:
             raise GameOver("Board is full. Cannot spawn any tile.")
@@ -85,8 +85,7 @@ class Board:
                 self.board[random.choice(self.empty_tiles())] = 1
 
         else:
-            pass
-            #complete the code here
+            self.board[empty_tiles[0]] = 1
 
     def clear(self):
         self.board = [0] * 16
@@ -125,6 +124,7 @@ class Board:
 
         if original == self.board:
             raise IllegalAction("Action did not move any tile.")
+        
         return r
 
     def rotate(self):

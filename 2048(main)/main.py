@@ -1,5 +1,5 @@
 import numpy as np
-from game import Board
+from game import Board,action_name
 from game import IllegalAction, GameOver
 from agent import nTupleNetwork
 import pickle
@@ -22,8 +22,8 @@ Gameplay = namedtuple("Gameplay", "transition_history game_reward max_tile")
 def play(agent, board, spawn_random_tile=False):
     "Return a gameplay of playing the given (board) until terminal states."
     b = Board(board)
-    r_game = 
-    a_cnt = 
+    r_game = 0
+    a_cnt = 0
     transition_history = []
     while True:
         a_best = agent.best_action(b.board)
@@ -67,10 +67,25 @@ def load_agent(path):
 # map board state to LUT
 TUPLES = [
     # horizontal 4-tuples
-    
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
     # vertical 4-tuples
-    
+    [0, 4, 8, 12],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [3, 7, 11, 15],
     # all 4-tile squares
+    [0, 1, 4, 5],
+    [4, 5, 8, 9],
+    [8, 9, 12, 13],
+    [1, 2, 5, 6],
+    [5, 6, 9, 10],
+    [9, 10, 13, 14],
+    [2, 3, 6, 7],
+    [6, 7, 10, 11],
+    [10, 11, 14, 15],
     
 ]
 
@@ -99,17 +114,24 @@ if __name__ == "__main__":
         n_games = 0
         agent = nTupleNetwork(TUPLES)
 
-    n_session = 5000
+    n_session = 1000
     n_episode = 100
     print("training")
     try:
         for i_se in range(n_session):
-           #Complete the logic here
+            for _ in range(n_episode):
+                play(agent, [0] * 16)
+                n_games += 1
+        print("{} games played by the agent".format(n_games))
+        if input("save the agent? (y/n)") == "y":
+            fout = "RL_2048/2048(main)/tmp/{}_{}games.pkl".format(agent.__class__.__name__, n_games)
+            pickle.dump((n_games, agent), open(fout, "wb"))
+            print("agent saved to", fout)
            
     except KeyboardInterrupt:
         print("training interrupted")
         print("{} games played by the agent".format(n_games))
         if input("save the agent? (y/n)") == "y":
-            fout = "tmp/{}_{}games.pkl".format(agent.__class__.__name__, n_games)
+            fout = "{}_{}games.pkl".format(agent.__class__.__name__, n_games)
             pickle.dump((n_games, agent), open(fout, "wb"))
             print("agent saved to", fout)
