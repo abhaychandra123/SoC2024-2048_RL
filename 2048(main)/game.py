@@ -1,10 +1,10 @@
 import random
 import numpy as np
 #Fill up the correct values
-UP = 1
-RIGHT = 2
-DOWN = 3
-LEFT = 4
+UP = 0
+RIGHT = 1
+DOWN = 2
+LEFT = 3
 
 
 def action_name(a):  # returns name of the action given the number assigned to it
@@ -79,7 +79,7 @@ class Board:
             raise GameOver("Board is full. Cannot spawn any tile.")
         if random_tile:
             #here we use logic that spawning 4 probability is 0.1 else spawn 2
-            if random.random()<=0.1:
+            if np.random.rand()<=0.1:
                 self.board[random.choice(self.empty_tiles())] = 2
             else:
                 self.board[random.choice(self.empty_tiles())] = 1
