@@ -79,7 +79,7 @@ class Board:
             raise GameOver("Board is full. Cannot spawn any tile.")
         if random_tile:
             #here we use logic that spawning 4 probability is 0.1 else spawn 2
-            if np.random.rand()<=0.1:
+            if random.random()<=0.1:
                 self.board[random.choice(self.empty_tiles())] = 2
             else:
                 self.board[random.choice(self.empty_tiles())] = 1

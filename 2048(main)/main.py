@@ -19,7 +19,7 @@ Transition = namedtuple("Transition", "s, a, r, s_after, s_next")
 Gameplay = namedtuple("Gameplay", "transition_history game_reward max_tile")
 
 
-def play(agent, board, spawn_random_tile=False):
+def play(agent, board, spawn_random_tile=True):
     "Return a gameplay of playing the given (board) until terminal states."
     b = Board(board)
     r_game = 0
